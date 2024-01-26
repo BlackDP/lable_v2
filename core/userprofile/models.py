@@ -13,7 +13,7 @@ class UserProfile(models.Model):
         verbose_name_plural = 'Профили пользователей'
 
     def __str__(self):
-        return self.name
+        return self.name.username
 
     def get_absolute_url(self):
-        return reverse('user_profile_detail', kwargs={'pk': self.pk})
+        return reverse('user_profile', kwargs={'pk': self.pk})
