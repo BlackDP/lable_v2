@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 'django.contrib.sites',
     'django.contrib.staticfiles',
     
     # installed apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    
+    # my apps
+    'userprofile',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +147,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# SITE_ID = 1
