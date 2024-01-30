@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'mptt',
     
     # my apps
     'userprofile',
+    'catalog',
 ]
 
 MIDDLEWARE = [
