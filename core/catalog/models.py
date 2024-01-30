@@ -7,8 +7,8 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    name = models.CharField('Наименование', max_length=250)
-    
+    name = models.CharField(verbose_name='Наименование', max_length=250)
+    category = models.ForeignKey('catalog.Category', verbose_name='Категория', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Товар'
