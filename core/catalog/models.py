@@ -25,6 +25,10 @@ class Category(MPTTModel):
     name = models.CharField('Категория', max_length=150)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+    
     def __str__(self):
         return self.name
     
