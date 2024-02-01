@@ -69,4 +69,67 @@ class ProductPrice(models.Model):
     def get_absolute_url(self):
         return reverse('product_price_detail', kwargs={"pk": self.pk})
 
+
+class Property(models.Model):
+    name = models.CharField('Название характеристики', max_length=50)
+    # uuid = 
+    value_str = models.CharField('Строковое значение', max_length=50, null=True, blank=True)
+    # value_list = models.ForeignKey("app.Model", verbose_name=_(""), on_delete=models.CASCADE)
+
+
+    class Meta:
+        verbose_name = 'Характеристика'
+        verbose_name_plural = 'Характеристики'
+
+    def __str__(self):
+        return self.name
+
+
     
+class PropertyValueList(models.Model):
+    # uuid = 
+    property_id = models.ForeignKey('catalog.Property', verbose_name='Характеристика', on_delete=models.CASCADE)
+    value = models.CharField('Значение', max_length=50)
+    
+
+    class Meta:
+        verbose_name = 'Значение характеристики'
+        verbose_name_plural = 'Значения характеристик'
+
+    def __str__(self):
+        return f'{self.property_id.name} {self.value}'
+
+    def get_absolute_url(self):
+        return reverse("PropertyValueList_detail", kwargs={"pk": self.pk})
+
+
+
+class ProductProperty(models.Model):
+    product = models.ForeignKey('catalog.Product', verbose_name='Товар', on_delete=models.CASCADE)
+    product_property = models.ForeignKey('catalog.Property', verbose_name='Характеристика', on_delete=models.CASCADE)
+    public = models.BooleanField(verbose_name='Публичная')
+    filtering = models.BooleanField(verbose_name='Фильтр')
+    
+
+    class Meta:
+        verbose_name = 'Характеристика товара'
+        verbose_name_plural = 'Характеристики товаров'
+
+    def __str__(self):
+        return f'{self.product} {self.product_property}'
+
+    def get_absolute_url(self):
+        return reverse("ProductProperty_detail", kwargs={"pk": self.pk})
+
+
+
+# Property 
+# uuid 
+# name 
+
+
+# Value
+# uuid 
+# value 
+# p_uuid  
+# type 
