@@ -1,2 +1,30 @@
-<h1>Base.html</h1>
-{% block content %}{% endblock content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block head_title %}{% endblock head_title %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href={% static "core/assets/images/favicon.ico" %}>
+
+        <!-- Theme Config Js -->
+        <script src={% static "core/assets/js/hyper-config.js" %}></script>
+
+        <!-- App css -->
+        <link href={% static "core/assets/css/app-modern.min.css" %} rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons css -->
+        <link href={% static "core/assets/css/icons.min.css" %} rel="stylesheet" type="text/css" />
+    </head>
+
+{% block page %}
+    {% block content %}{% endblock content %}
+{% endblock page %}
+
+</html> 

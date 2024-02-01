@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page %}
+<body class="authentication-bg pb-0">
+    {% block content %}
+    {% endblock content %}
+
+    <script src={% static "core/assets/js/vendor.min.js" %}></script>
+
+    <!-- App js -->
+    <script src={% static "core/assets/js/app.min.js" %}></script>
+</body>
+{% endblock page %}
+
+
+
