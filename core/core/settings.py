@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'mptt',
     
     # my apps
+    'storefront',
     'userprofile',
     'catalog',
 ]
